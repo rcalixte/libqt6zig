@@ -109,12 +109,14 @@ func (method *CppMethod) resolveMethodStructTypes(className, namespace string) {
 						if method.ReturnType.QtCppOriginalType != nil {
 							method.ReturnType.QtCppOriginalType.ParameterType = className + "::" + innerType
 						}
+						KnownReturnClassnames[className+"::"+innerType] = struct{}{}
 					}
 					continue
 				}
 
 				// Try resolving from KnownClassnames
 				if _, ok := KnownClassnames[innerType]; ok {
+					KnownReturnClassnames[innerType] = struct{}{}
 					method.ReturnType.ParameterType = container + innerType + ">"
 				}
 
@@ -128,6 +130,7 @@ func (method *CppMethod) resolveMethodStructTypes(className, namespace string) {
 				fullClassName := className + "::" + innerType
 				namespaceName := namespace + "::" + innerType
 				if _, ok := KnownClassnames[fullClassName]; ok {
+					KnownReturnClassnames[fullClassName] = struct{}{}
 					method.ReturnType.ParameterType = container + fullClassName + ">"
 					if method.ReturnType.QtCppOriginalType != nil {
 						method.ReturnType.QtCppOriginalType.ParameterType = container + fullClassName + ">"
@@ -135,6 +138,7 @@ func (method *CppMethod) resolveMethodStructTypes(className, namespace string) {
 				} else if namespace != "" {
 					// Try namespace scope
 					if _, ok := KnownClassnames[namespaceName]; ok {
+						KnownReturnClassnames[namespaceName] = struct{}{}
 						method.ReturnType.ParameterType = container + namespaceName + ">"
 						if method.ReturnType.QtCppOriginalType != nil {
 							method.ReturnType.QtCppOriginalType.ParameterType = container + namespaceName + ">"
@@ -176,10 +180,12 @@ func (method *CppMethod) resolveMethodStructTypes(className, namespace string) {
 					fullClassName := className + "::" + innerType
 					namespaceName := namespace + "::" + innerType
 					if _, ok := KnownClassnames[fullClassName]; ok {
+						KnownReturnClassnames[fullClassName] = struct{}{}
 						method.Parameters[i].ParameterType = container + fullClassName + ">"
 					} else if namespace != "" {
 						// Try namespace scope
 						if _, ok := KnownClassnames[namespaceName]; ok {
+							KnownReturnClassnames[namespaceName] = struct{}{}
 							method.Parameters[i].ParameterType = container + namespaceName + ">"
 						}
 					}
