@@ -169,6 +169,11 @@ func IsKnownClass(className string) bool {
 	return ok
 }
 
+func IsKnownReturnClass(className string) bool {
+	_, ok := KnownReturnClassnames[className]
+	return ok
+}
+
 func IsKnownTypeDef(className string) bool {
 	_, ok := KnownTypedefs[className]
 	return ok
