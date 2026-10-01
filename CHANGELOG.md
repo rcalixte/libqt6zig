@@ -1,4 +1,20 @@
 
+### 6.8.2 rev89 (1 October 2026)
+
+* **BREAKING CHANGE:** Refactor subclass and method projections (#181)
+* Extend existing library projections (#180)
+* Fix pointers to QList types and platform workaround (#179)
+* Add [Qt Quick 3D](https://doc.qt.io/qt-6/qtquick3d-index.html) (#178)
+* Add pure virtual workaround and extra module paths (#177)
+* Apply quirks consistently and unblock additional operators (#176)
+* Unblock some platform-specific functionality (#175)
+* Reimplement signals and remove brute force workaround (#174)
+* Add [Qt Virtual Keyboard](https://doc.qt.io/qt-6/qtvirtualkeyboard-index.html) (#173)
+* Add [Kirigami](https://api.kde.org/kirigami-index.html) and [Kirigami Addons](https://api.kde.org/kirigami-addons-index.html) (#172)
+* Update various blocks and workarounds (#171)
+* Add [Qt Quick](https://doc.qt.io/qt-6/qtquick-index.html) (#170)
+* Add [Qt QML](https://doc.qt.io/qt-6/qtqml-index.html) (#169)
+
 ### 6.8.2 rev88 (14 September 2026)
 
 * **BREAKING CHANGE:** Project additional free functions and enum typedefs (#168)
